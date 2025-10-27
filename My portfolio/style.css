@@ -1,0 +1,741 @@
+*{
+margin: 0;
+box-sizing: border-box;
+
+}
+body{
+    overflow-x: hidden;
+}
+
+section:target .section-heading {
+  color: white;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.section-heading {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  position: relative;
+}
+
+.section-heading::after{
+    content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #00bcd4; /* Same teal/blue from your buttons */
+  margin: 12px auto 0;
+  border-radius: 6px;
+
+}
+
+
+/* Nav bar*/
+.navbar{
+    position: fixed;                        /*Sticks navbar at the top of the page*/
+    margin-top: 0;
+    width: 100%;                            /*full width*/
+    background-color: #0f2027;            /*dark background*/
+    z-index: 1000;                          /*makes it show up on other content*/
+  
+}
+
+/* Layout for desktop: logo left, links right */
+.navcontainer{
+    max-width: 1100px;                      /*Limits width on large screens*/
+    margin: 0 auto;                         /*centers the content horzontally*/
+    padding:10px 40px;                      /*space inside nav bar*/
+    display: flex;                         /*puts childrens (logo+links) in a row*/     
+    justify-content: space-between;       /*logo left, menu right*/
+    align-items: center;                    /*centers verticlly*/
+}
+
+/* Brand name styling */
+.nav-logo{
+    font-family:"Poppins",sans-serif ;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+/* Horizontal list for desktop */
+.nav-links{
+    list-style: none;                      /* Removes bullet points */
+    display: flex;                         /* put Menu links in a row */
+    gap: 30px;                             
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;             /* Smooth animation on any change */
+}
+/*nav links styling*/
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  transition: color 0.3s ease, border-bottom 0.3s ease ;
+   padding-bottom: 5px;
+   border-bottom: 2px solid transparent;          /* invisible underline */
+}
+
+/* Hover underline animation */
+.nav-links a:hover{
+    color: #00bcd4;
+    border-bottom: 2px solid #00bcd4;          /* shows underline on hover */
+}
+
+/*it hold all the links in one div and that drop down menue*/
+.nav-menu{
+    display: flex;
+    align-items:center;
+    gap: 20px;
+    position: relative;
+}
+
+/* Hidden checkbox toggle for hamburger */
+#menu-toggler{
+    display: none;
+}
+
+/* Hamburger icon (visible only in mobile) */
+.hamburger{
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
+
+/* ========== MOBILE NAVBAR (Responsive) ========== */
+@media (max-width:768px){
+
+  /* Show hamburger icon on mobile */ 
+    .hamburger{
+        display: block;
+    }
+
+  /* Layout: logo and hamburger on same row */
+    .navcontainer{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+/* Wrapper for hamburger and nav links - controls layout/responsiveness */
+    .nav-menu{
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+    }
+  /* Stack links vertically */
+    .nav-links{
+        display: none;
+        flex-direction: column;
+        background-color: #0f2027;
+        position: absolute;
+        top: 40px; /* below navbar */
+        right: 0;
+        width: 100vw;
+        text-align: center;
+        padding: 20px ;
+        gap: 20px;
+        z-index: 999;  
+    }
+
+  /* When checkbox checked, show menu */
+    #menu-toggler:checked~ .nav-links{
+        display: flex;
+    }
+
+  /* Prevent logo from wrapping */ 
+   .nav-logo{
+        font-size: 18px;
+        white-space: nowrap;
+    }
+ 
+}
+
+
+/*Hero section*/
+
+.hero-section{
+    background: linear-gradient(to right, #0f2027, #2c5364);
+    color:#ffff;
+    padding: 60px 40px;               /* top-bottom, left-right padding */
+    padding-top: 100px;               /* pushes it below navbar */
+}
+.container{
+    max-width: 1100px;
+    margin: 0 auto;                   /* centers it */
+    padding: 40px 20px ;
+    width: 100%;
+    display: flex;                    /* display it side-by-side */
+    align-items: center;              /* vertical centering */
+    justify-content: center;          /* horizontal centering */  
+
+}
+
+.hero-img img{
+    width: 100%;                      /* responsive image  */
+    height: auto;
+    max-width:400px;                   /* caps image size so that it doesent go grow much */
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);  /* adds glow effect around the img */
+    border-radius: 50%;                /* makes it round */
+}
+.hero-text{
+    color: #ffff;
+    max-width: 600px;                  /*makeing text responsive so it dont grow much on larger screens*/
+    padding-left: 40px;                /* gap between image and text */
+}
+ 
+.hero-text h1{
+    font-size: 48px;
+    font-family:"Poppins",sans-serif;
+    font-weight: 700;    
+}
+.hero-text p{
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+@media (max-width:768px){
+    .container{
+        flex-direction: column;         /* Stack image and text in column*/
+        padding: 20px;                  /* Less padding */    
+        text-align: center;             /* Center text */  
+    }
+
+    .hero-img img{
+        max-width: 250px;             /* Smaller image on mobile */
+        margin-bottom: 20px;          /* Add space below image */
+    }
+
+    .hero-text{
+        padding: 0;                  /* Remove side padding */
+    }
+
+    .hero-text h1{
+        font-size: 32px;
+    }
+
+    .hero-text p{
+        font-size: 16px;
+    }
+}
+
+                                    /*About me section*/
+
+.about-section{
+    background: linear-gradient(to right, #0f2027, #203a43);
+    color: #ffffff;
+    padding: 80px 20px;
+    min-height: 100vh;
+}
+.about-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+}
+
+
+.about-text{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+}
+.about-text h3{
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 10px;
+
+}
+.about-text p{
+    font-weight: 300;
+    color: #ccc;
+}
+
+.about-btn{
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    background-color: #00bcd4;
+    
+}
+.about-btn:hover{
+    background-color: #0199ac;
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+    transition: all 0.3s ease;
+
+}
+
+@media (max-width:768px){
+    .about-heading{
+        font-size: 28px;
+    }
+
+    .about-text{
+        padding: 0 5px;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .about-text h3{
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .about-text p{
+        font-size: 14px;
+    }
+
+    .about-container{
+        padding: 0 10px;
+    }
+
+    .about-section{
+        padding: 80px 20px 60px; /* reduce bottom padding */
+        min-height: 0;
+    }
+
+}
+
+/* will use in future
+
+.about-image {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); 
+  margin: 0 auto; 
+}
+
+.about-image img {
+  width: 95%;
+  height: 95%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+*/
+
+                                    /*My skills section*/
+
+/*Full-section background color, padding, and text color*/
+.skills-section{
+    background: linear-gradient(to right, #1a5c6c, #003b4e);
+    padding: 60px 40px;
+    color: #ffffff;
+    /* clip-path:polygon(0 0, 100% 5%, 100% 100%, 0 100%); /*so this is optionl it makes a cut betwenn section*/
+}
+
+/*used to not let grid strech more than 1200px becuase if its not then its keep stretching*/
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+
+/*this is a grid used to hold all cards*/
+
+/*repeat(...): Repeats the same column rule as many times as it fits.
+auto-fit: Tells the grid to automatically fit as many columns as possible.
+minmax(250px, 1fr):
+250px → minimum width of a column. No column will shrink smaller than this.
+1fr → maximum width is a fraction of available space. Columns expand to fill the row equally*/
+
+.skills-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+/*used this so that the above grid template will make it responsive for tablet and mobile but if it moves ahead of 1024 screen resolution then this media query will make it 3 columns for laptops and larger displays*/
+@media (min-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.skill-card{
+    background: linear-gradient(135deg, rgba(0,188,212,0.07), rgba(255,255,255,0.03));/*its creates a special little bright color for box and it also matcches with layout of overall web*/
+    padding:20px ;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/*this tranform property makes its move up and down and grow and shrink like translate y move up and down and scale grows its size to 102persent
+and box shadow means  0 for for x moves left right like x axis and other y is y-axis to move up and down the shadow
+*/
+.skill-card:hover{
+    transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.skill-card p{
+    margin-top: 10px;
+    line-height: 1.6;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.skill-header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skill-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0; 
+}
+/*gives section heading text and skills header text a shadow little*/
+.section-heading, .skill-header h3 {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+
+/*all skill card logos designing*/
+.skill-icon.html{
+    font-size: 40px;
+    color:#f16529 ;
+}
+
+.skill-icon.css{
+    font-size: 40px;
+    color:#74C0FC ;
+}
+
+.skill-icon.javascript{
+    font-size: 40px;
+    color:#FFD43B ;
+}
+.skill-icon.canva{
+    font-size: 40px;
+    color:#7f5fdd ;
+}
+.skill-icon.ux{
+    font-size: 40px;
+    color:#f5dd84 ;
+}
+.skill-icon.bootstrap{
+    font-size: 40px;
+    color:#a66ef9;
+}
+
+/*icons hover effect*/
+.skill-icon i{ 
+    transition: transform 0.3s ease ;
+}
+
+.skill-card:hover .skill-icon i{
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+/*Projects Section*/
+
+.projects-section{
+background: linear-gradient(to right, #113f58, #002c3e);
+    padding: 60px 40px;
+    color:#ffffff
+}
+.project-container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.project-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.project-card{
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.project-card:hover {
+   transform: translateY(-8px);
+   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+.project-card img{
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.project-title{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+
+}
+
+.project-description{
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.project-link {
+    display: inline-block;
+    color: #ffffff;
+    padding: 10px 18px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    background: transparent;
+    border: 1px solid rgba( 255, 255, 255,0.3) ;
+    margin-top: auto;
+    border-radius: 8px;
+    align-self: start;
+    text-decoration: none;
+    transition: all 0.3s ease; 
+    text-align: center;
+    
+}    
+
+.project-link:hover {
+  background-color: #00bcd4;
+  color: #ffffff;
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
+  border-color: transparent;
+}
+
+.view-more-placeholder{
+    position: relative;
+
+}
+
+.coming-soon-text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/*Centers the CTA button on small screens.*/
+@media (max-width: 600px) {
+  .project-link {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+
+/*Contact me section*/
+
+.contact-section{
+    background: linear-gradient(to right, #0a1c23, #05161a);
+    color: #ffffff;
+    padding: 60px 40px ;
+    overflow-x:hidden ;
+
+}
+
+
+
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 100px;
+  padding: 60px 40px;
+}
+
+.contact-left {
+  max-width: 400px;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+}
+.contact-left h2{
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color:#ffffff;
+}
+
+.contact-left p{
+    font-size: 16px;
+    line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+
+}
+
+/*Form styling*/
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 350px;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.03);
+    /*
+    Note:
+     so first 0 means shadow moves right side 0 and if its neagtive then left side, the other 8px means the shadow moves down an if its negative then shadow move up, then 24px means blur radius of shadow, higher=blurier, an then rgba means color and transpancy 0.2 means 20%*/
+    box-shadow: 0px 8px 24px rgba( 0, 0, 0,0.2);
+    padding: 24px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+}
+.contact-form *{
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px 16px;
+    background-color:rgba(255, 255, 255, 0.05) ;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+  font-family: inherit;
+
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border: 1px solid #00bcd4;
+    box-shadow: 0 0 8px rgba(0, 188, 212, 0.6);
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.contact-form button{
+    background-color: #00bcd4;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+     cursor: pointer;
+   font-family: "Poppins", sans-serif;
+   align-self: center;
+   width: 100%;
+   text-align: center;
+   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form button:hover{
+    background-color: #00a3bc;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.6);
+}
+
+@media (max-width:768px){
+    .contact-container{
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 40px;
+    }
+    .contact-left{
+        text-align: center;
+    }
+
+    .contact-form{
+        max-width: 100%;
+    }
+
+    .section-heading {
+    font-size: 24px;
+  }
+
+  .contact-left h2 {
+    font-size: 22px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+  }
+
+  .contact-form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/*Footer section*/
+.footer{
+      background-color: #07191e; /* Slightly lighter than contact section */
+      padding: 40px 20px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.8);
+      font-family: "Poppins", sans-serif;
+}
+
+.footer-container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-links{
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 16px;
+}
+.social-links a {
+  color: #00bcd4;
+  font-size: 24px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover{
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.footer-text{
+    font-size: 14px;
+    opacity: 0.7;
+}

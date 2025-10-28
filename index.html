@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--Google fonts link-->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!--Font aesome link for icons-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <!--Nav bar-->
+    <nav class="navbar">
+        <div class="navcontainer">      
+            <div class="nav-logo">My Portfolio</div>
+
+            <!--Hamburger toggler for responsiveness-->
+            <div class="nav-menu">
+                <input type="checkbox" id="menu-toggler"><!--it will be a hiden check box-->
+                <label for="menu-toggler" class="hamburger"><i class="fa-solid fa-bars"></i></label><!--user see this and when they click that chck box works-->
+            
+              <ul class="nav-links">
+                 <li><a href="#home" >Home</a></li>
+                 <li><a href="#about" >About Me </a></li>
+                 <li><a href="#project" >Projects</a></li>
+                 <li><a href="#contact" >Contact Me </a></li>                               
+              </ul>
+
+            </div>
+        </div>              
+    </nav>
+
+    <!--Hero Section-->
+   <section id="home" class="hero-section">
+    <div class="container">
+        <div class="hero-img">
+            <img src="./images/hero img.png" alt="Anime figure">
+        </div>
+        <div class="hero-text">
+            <h1>Hi,I'm Faizan</h1>
+            <p>A Web Developer and An Enterprenur</p>
+        </div>
+    </div>
+
+   </section>
+
+    <!--About me section-->
+    <section id="about" class="about-section">
+     <div class="container about-container">
+            <!--  <div class="about-image"><img src="./images/aboutme-pic.png" alt=""></div>---->
+           <h2 class=" section-heading ">About Me</h2>
+          <div class="about-text">
+             <h3>I'm Faizan — a passionate web developer and entrepreneur.</h3>
+              <p>I Love to help businesses establish their online presence through websites, automation, and digital marketing. I'm currently focused on building my own creative agency.</p>
+          </div>
+          <a href="about.html" class="about-btn">Know More About me</a>
+        </div>
+    </section>
+    
+    <!--My skills section-->
+    <section id="skill" class="skills-section">
+        <div class="skills-container">
+            <h2 class="section-heading">My Skills</h2>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon html"><i class="fa-brands fa-html5"></i></div>
+                        <h3>Html</h3>
+                    </div>
+                    <p>Clean, semantic HTML that forms the base of every page</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon css"><i class="fa-brands fa-css3-alt"></i></div>
+                        <h3>Css</h3>
+                    </div>
+                    <p>Modern, responsive styling with Flexbox, Grid, and animations.</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon javascript"><i class="fa-brands fa-js"></i></div>
+                        <h3>JavaScript</h3>
+                    </div>
+                    <p>Interactive and dynamic front-end features using modern JS.</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon canva"><i class="fa-solid fa-paintbrush"></i></i></div>
+                        <h3>Canva</h3>
+                    </div>
+                    <p>Creative graphics, social posts, and brand design assets</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon ux"><i class="fa-solid fa-shapes"></i></div>
+                        <h3>UX/UI</h3>
+                    </div>
+                    <p>Designing intuitive and aesthetic user interfaces and experiences.</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon bootstrap"><i class="fa-brands fa-bootstrap"></i></div>
+                        <h3>Bootstrap</h3>
+                    </div>
+                    <p>Rapid development using Bootstrap’s responsive grid system, utility classes, and components.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <!--Projects Section-->
+    <section id="project" class="projects-section">
+        <div class="project-container">
+            <h2 class="section-heading">My Projects</h2>
+
+            <div class="project-grid">
+                <!--Project 1 : Tindog-->
+                <div class="project-card">
+                    <img src="./images/tindog screen shot.png" alt="Tindog website screen shot">
+                    <h3 class="project-title">Tindog</h3>
+                    <p class="project-description">A simple landing page inspired by dating apps, built using HTML and Bootstrap.</p>
+                    <a href="https://faizan-codes777.github.io/Tindog-Startup/" class="project-link">See on Github</a>
+                </div>
+
+                <!--Project 2 : Move-It startup-->
+                <div class="project-card">
+                    <img src="./images/Move it startup screenshot.png" alt="Move it startup website screen shot">
+                    <h3 class="project-title">Move it</h3>
+                    <p class="project-description">A demo startup website for a moving service. Built with pure HTML and CSS.</p>
+                    <a href="https://faizan-codes777.github.io/Move-it-startup-demo-website/" class="project-link">See on Github</a>
+                </div>
+
+                <!--View more card-->
+                <div class="project-card view-more-card">
+                    <div class="view-more-placeholder">
+                        <img src="./images/new background img.jpg" alt="dark grey background image" >
+                        <p class="coming-soon-text">Coming Soon..</p>
+                        <p class="project-description">See more of my upcoming work soon.</p>
+
+                    </div>
+                    <a href="#project" class="project-link">Explore More</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--Contact Me Section-->
+    <section id="contact" class="contact-section">
+        <h2 class="section-heading">Get in Touch</h2>
+
+        <div class="contact-container">
+            <div class="contact-left">
+                <h2>Let’s work together</h2>
+                <p>I’d love to hear from you and help you build something amazing.</p>
+            </div>
+            <form  action="mailto:faizanshahid.net@gmail.com" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name"  required>
+                <input type="email" name="email" placeholder="Your Email" required/>
+                <textarea placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+
+            </form>
+        </div> 
+    </section>
+
+    <!--Footer section-->
+    <section class="footer">
+        <div class="footer-container">
+            <div class="social-links">
+                <a href="https://github.com/Faizan-Codes777" aria-label="Github"><i class="fa-brands fa-square-github"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <p class="footer-text">© 2025 Faizan Shahid. All rights reserved.</p>
+        </div>
+
+    </section>
+    
+</body>
+</html>
